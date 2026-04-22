@@ -3,22 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie App - DAG 2</title>
+    <meta name="theme-color" content="#050505" />
+    <title>CinéNoir — Film App</title>
+
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
+
     <header>
-      <h1>Film App</h1>
-      <p>Søg, filtrér og sortér</p>
+      <h1>CinéNoir</h1>
+      <p>Søg &nbsp;·&nbsp; Filtrér &nbsp;·&nbsp; Opdagelse</p>
     </header>
 
-    <section class="controls">
+    <section class="controls" aria-label="Filtrering og sortering">
       <div class="control-group">
         <label for="search-input">Søg på titel</label>
         <input
           type="text"
           id="search-input"
-          placeholder="Fx matrix, dune eller dark"
+          placeholder="Fx Matrix, Dune eller Dark…"
+          autocomplete="off"
         />
       </div>
       <div class="control-group">
@@ -31,25 +43,24 @@
         <label for="sort-select">Sortering</label>
         <select id="sort-select">
           <option value="none">Ingen sortering</option>
-          <option value="title">Titel (A-Å)</option>
+          <option value="title">Titel (A–Å)</option>
           <option value="year">Årstal (nyeste først)</option>
           <option value="rating">Rating (højeste først)</option>
         </select>
       </div>
     </section>
-    <section class="status-bar">
-        <p id="movie-count">Viser 0 film</p>
+
+    <section class="status-bar" aria-live="polite">
+      <p id="movie-count">Indlæser film…</p>
     </section>
 
     <main>
-      <section id="movie-list" class="movie-grid" aria-label="Filmliste">
-        
-      </section>
+      <section id="movie-list" class="movie-grid" aria-label="Filmliste"></section>
     </main>
-    
-    <dialog id="movie-dialog">
+
+    <dialog id="movie-dialog" aria-modal="true">
       <form method="dialog">
-        <button id="close-dialog" aria-label="Luk">✕</button>
+        <button id="close-dialog" aria-label="Luk dialog">✕</button>
         <div id="dialog-content">
           <!-- Filmdetaljer indsættes her via JavaScript -->
         </div>
